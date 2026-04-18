@@ -1,0 +1,9 @@
+{
+  "name": "budget-tracker-backend",
+  "version": "1.0.0",
+  "description": "Backend functions for budget tracker",
+  "dependencies": {
+    "plaid": "^14.0.0",
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
