@@ -1,0 +1,30 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# Sync twice a day: 7am and 7pm UTC
+[functions."sync-transactions"]
+  schedule = "0 7,19 * * *"
+
+# Keep functions lean to save invocation time / credits
+[functions."sync-transactions"]
+  node_bundler = "esbuild"
+
+[functions."get-data"]
+  node_bundler = "esbuild"
+
+[functions."save-data"]
+  node_bundler = "esbuild"
+
+[functions."create-link-token"]
+  node_bundler = "esbuild"
+
+[functions."exchange-token"]
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
